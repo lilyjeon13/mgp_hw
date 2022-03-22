@@ -30,7 +30,7 @@ class better_locked_probing_hash_table : public hash_table {
 
     public:
 
-    better_locked_probing_hash_table(int table_size):TABLE_SIZE(table_size), LOCK_SIZE(table_size/16){
+    better_locked_probing_hash_table(int table_size):TABLE_SIZE(table_size), LOCK_SIZE(table_size/4){
       this->table = new Bucket[TABLE_SIZE]();
       for(int i=0;i<TABLE_SIZE;i++) {
         this->table[i].valid=0; //means empty
@@ -57,6 +57,16 @@ class better_locked_probing_hash_table : public hash_table {
       //quadratic probing
       return ((origin_index + int(pow(iter_count,2)))% TABLE_SIZE);
     }
+    virtual uint32_t hash_double_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
+    {
+      //double probing
+      return ((origin_index + iter_count*2)% TABLE_SIZE);
+    }
+    virtual uint32_t hash_times_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
+    {
+      //times probing
+      return ((origin_index + iter_count*6)% TABLE_SIZE);
+    }
 
     //the buffer has to be allocated by the caller
     bool read(uint32_t key, uint64_t* value_buffer){
@@ -78,7 +88,8 @@ class better_locked_probing_hash_table : public hash_table {
           probe_count++;
           iter_count++;
           locks[lock_index].unlock();
-          index = this->hash_quad_next(key, origin_index, iter_count);
+          index = this->hash_double_next(key, origin_index, iter_count);
+          // index = this->hash_next(key, index);
           if(probe_count >= TABLE_SIZE) break;
           lock_index = get_lock_index(index);
           locks[lock_index].lock();
@@ -113,7 +124,8 @@ class better_locked_probing_hash_table : public hash_table {
           probe_count++;
           iter_count++;
           locks[lock_index].unlock();
-          index = this->hash_quad_next(key, origin_index, iter_count);
+          index = this->hash_double_next(key, origin_index, iter_count);
+          // index = this->hash_next(key, index);
           if(probe_count >= TABLE_SIZE) return false; //could not add because the table was full
           lock_index = get_lock_index(index);
           locks[lock_index].lock();
