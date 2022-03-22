@@ -17,18 +17,24 @@ class better_locked_probing_hash_table : public hash_table {
 
     /* TODO: put your own code here  (if you need something)*/
     /****************/
+    std::mutex* locks; // usually 16 locks
+    const int LOCK_SIZE;
 
+    virtual uint64_t get_lock_index(uint64_t index){
+      return index % LOCK_SIZE;
+    }
 
     /****************/
     /* TODO: put your own code here */
 
     public:
 
-    better_locked_probing_hash_table(int table_size):TABLE_SIZE(table_size){
+    better_locked_probing_hash_table(int table_size):TABLE_SIZE(table_size), LOCK_SIZE(16){
       this->table = new Bucket[TABLE_SIZE]();
       for(int i=0;i<TABLE_SIZE;i++) {
         this->table[i].valid=0; //means empty
       }
+      this->locks = new std::mutex[LOCK_SIZE]();
     }
 
     virtual uint32_t hash(uint32_t x)  
@@ -50,7 +56,28 @@ class better_locked_probing_hash_table : public hash_table {
     bool read(uint32_t key, uint64_t* value_buffer){
       /* TODO: put your own read function here */
       /****************/
+      uint64_t index = this->hash(key);
+      int probe_count=0;
+      uint64_t lock_index = get_lock_index(index);
 
+      locks[lock_index].lock();
+      while(table[index].valid == true) {
+        if(table[index].key == key) {
+          *value_buffer = table[index].value;
+          locks[lock_index].unlock();
+          return true;
+        } else {
+          probe_count++;
+          locks[lock_index].unlock();
+          index = this->hash_next(key, index);
+          if(probe_count >= TABLE_SIZE) break;
+          lock_index = get_lock_index(index);
+          locks[lock_index].lock();
+        }
+      }//end while
+
+      //If you reached here, you either encountered an empty slot or the table is full. In any case, the item you're looking for is not here 
+      return false;
 
       /****************/
       /* TODO: put your own read function here */
@@ -60,7 +87,37 @@ class better_locked_probing_hash_table : public hash_table {
     bool insert(uint32_t key, uint64_t value) {
       /* TODO: put your own insert function here */
       /****************/
+      // lock guard
+      // std::lock_guard<std::mutex> lock(global_mutex);
+      uint64_t index = this->hash(key);
+      int probe_count=0;
+      uint64_t lock_index = get_lock_index(index);
 
+      locks[lock_index].lock();
+      while(table[index].valid == true) {
+        if(table[index].key == key) {
+          //found it already there. just modify
+          break;
+        } else {
+          probe_count++;
+          locks[lock_index].unlock();
+          index = this->hash_next(key, index);
+          if(probe_count >= TABLE_SIZE) return false; //could not add because the table was full
+          lock_index = get_lock_index(index);
+          locks[lock_index].lock();
+        }
+      }//end while
+
+      //if you came here, 
+      //1. You found a bucket with the same key
+      //2. You encountered an empty bucket
+
+      //You might be overwriting in case 1, but it is still functionally correct
+      table[index].valid = true; 
+      table[index].key   = key; 
+      table[index].value = value;
+      locks[lock_index].unlock();
+      return true;
 
       /****************/
       /* TODO: put your own insert function here */
@@ -76,3 +133,4 @@ class better_locked_probing_hash_table : public hash_table {
 };
 
 #endif
+

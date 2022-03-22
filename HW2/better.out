@@ -1,0 +1,7 @@
+TABLE_SIZE 10000000 init: 4000000 new: 4000000 NT: 16 additional_reads: 9 use_custom: 1
+better HT 1
+start filling
+init hash table took 0.23128 sec
+start test
+test 36000000 ops took 2.93171 sec
+sanity check PASSED: 
