@@ -1,0 +1,4 @@
+init took 0.758794 sec
+serial 1D filter took 1.29578 sec
+parallel 1D filter took 0.42562 sec
+PASS
