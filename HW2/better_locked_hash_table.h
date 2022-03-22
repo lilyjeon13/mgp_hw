@@ -29,7 +29,7 @@ class better_locked_probing_hash_table : public hash_table {
 
     public:
 
-    better_locked_probing_hash_table(int table_size):TABLE_SIZE(table_size), LOCK_SIZE(16){
+    better_locked_probing_hash_table(int table_size):TABLE_SIZE(table_size), LOCK_SIZE(table_size/16){
       this->table = new Bucket[TABLE_SIZE]();
       for(int i=0;i<TABLE_SIZE;i++) {
         this->table[i].valid=0; //means empty
