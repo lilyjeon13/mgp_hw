@@ -18,7 +18,7 @@ class better_locked_probing_hash_table : public hash_table {
 
     /* TODO: put your own code here  (if you need something)*/
     /****************/
-    std::mutex* locks; // usually 16 locks
+    std::mutex* locks; 
     const int LOCK_SIZE;
 
     virtual uint64_t get_lock_index(uint64_t index){
@@ -57,6 +57,7 @@ class better_locked_probing_hash_table : public hash_table {
       //quadratic probing
       return ((origin_index + int(pow(iter_count,2)))% TABLE_SIZE);
     }
+
     virtual uint32_t hash_double_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
     {
       //double probing
@@ -67,6 +68,7 @@ class better_locked_probing_hash_table : public hash_table {
       //times probing
       return ((origin_index + iter_count*6)% TABLE_SIZE);
     }
+    // virtual uint32_t hash_next_double(uint32_t key, )
 
     //the buffer has to be allocated by the caller
     bool read(uint32_t key, uint64_t* value_buffer){
@@ -74,25 +76,18 @@ class better_locked_probing_hash_table : public hash_table {
       /****************/
       uint64_t index = this->hash(key);
       int probe_count=0;
-      uint64_t lock_index = get_lock_index(index);
       uint32_t iter_count = 0;
       uint32_t origin_index = index;
 
-      locks[lock_index].lock();
       while(table[index].valid == true) {
         if(table[index].key == key) {
           *value_buffer = table[index].value;
-          locks[lock_index].unlock();
           return true;
         } else {
           probe_count++;
           iter_count++;
-          locks[lock_index].unlock();
-          index = this->hash_double_next(key, origin_index, iter_count);
-          // index = this->hash_next(key, index);
+          index = this->hash_double_next(origin_index, iter_count);
           if(probe_count >= TABLE_SIZE) break;
-          lock_index = get_lock_index(index);
-          locks[lock_index].lock();
         }
       }//end while
 
@@ -121,11 +116,11 @@ class better_locked_probing_hash_table : public hash_table {
           //found it already there. just modify
           break;
         } else {
+          locks[lock_index].unlock();
           probe_count++;
           iter_count++;
-          locks[lock_index].unlock();
-          index = this->hash_double_next(key, origin_index, iter_count);
-          // index = this->hash_next(key, index);
+          
+          index = this->hash_double_next(origin_index, iter_count);
           if(probe_count >= TABLE_SIZE) return false; //could not add because the table was full
           lock_index = get_lock_index(index);
           locks[lock_index].lock();
