@@ -49,7 +49,7 @@ class better_locked_probing_hash_table : public hash_table {
 
     virtual uint32_t hash_next(uint32_t key, uint32_t prev_index)
     {
-      // //linear probing. no special secondary hashfunction
+      //linear probing. no special secondary hashfunction
       return ((prev_index + 1)% TABLE_SIZE); 
     }
     // virtual uint32_t hash_quad_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
@@ -63,12 +63,6 @@ class better_locked_probing_hash_table : public hash_table {
     //   //double probing
     //   return ((origin_index + iter_count*2)% TABLE_SIZE);
     // }
-    // virtual uint32_t hash_times_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
-    // {
-    //   //times probing
-    //   return ((origin_index + iter_count*6)% TABLE_SIZE);
-    // }
-    // virtual uint32_t hash_next_double(uint32_t key, )
 
     //the buffer has to be allocated by the caller
     bool read(uint32_t key, uint64_t* value_buffer){
@@ -101,35 +95,46 @@ class better_locked_probing_hash_table : public hash_table {
       /****************/
       uint64_t index = this->hash(key);
       int probe_count=0;
-      uint64_t lock_index = index % LOCK_SIZE;
 
-      locks[lock_index].lock();
-      while(table[index].valid == true) {
-        if(table[index].key == key) {
-          //found it already there. just modify
-          break;
-        } else {
-          locks[lock_index].unlock();
-          probe_count++;
-          
-          index = this->hash_next(key, index);
-          if(probe_count >= TABLE_SIZE) return false; //could not add because the table was full
-          lock_index = index % LOCK_SIZE;
+      bool need_to_continue = true;
+      while (need_to_continue){
+        if (table[index].valid == true){
+          if (table[index].key == key){
+            uint64_t lock_index = index % LOCK_SIZE;
+            locks[lock_index].lock();
+            table[index].value = value;
+            locks[lock_index].unlock();
+            need_to_continue = false;
+            return true;
+          }else{
+            probe_count++;
+            index = this->hash_next(key, index);
+            if(probe_count >= TABLE_SIZE) return false; //could not add because the table was full
+            need_to_continue = true;
+            continue;
+          }
+        }else{
+          // temporary empty
+          uint64_t lock_index = index % LOCK_SIZE;
           locks[lock_index].lock();
+          // really insert
+          if (table[index].valid){ 
+            // already full -> need to find next empty bucket
+            locks[lock_index].unlock();
+            need_to_continue = true;
+            continue;
+          }else{
+            // really empty -> can insert key and value. 
+            table[index].valid = true; 
+            table[index].key   = key; 
+            table[index].value = value;
+            locks[lock_index].unlock();
+            need_to_continue = false;
+            return true;
+          }
         }
-      }//end while
-
-      //if you came here, 
-      //1. You found a bucket with the same key
-      //2. You encountered an empty bucket
-
-      //You might be overwriting in case 1, but it is still functionally correct
-      table[index].valid = true; 
-      table[index].key   = key; 
-      table[index].value = value;
-      locks[lock_index].unlock();
+      }
       return true;
-
       /****************/
       /* TODO: put your own insert function here */
     }
