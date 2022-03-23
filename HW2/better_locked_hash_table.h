@@ -52,22 +52,22 @@ class better_locked_probing_hash_table : public hash_table {
       // //linear probing. no special secondary hashfunction
       return ((prev_index + 1)% TABLE_SIZE); 
     }
-    virtual uint32_t hash_quad_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
-    {
-      //quadratic probing
-      return ((origin_index + int(pow(iter_count,2)))% TABLE_SIZE);
-    }
+    // virtual uint32_t hash_quad_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
+    // {
+    //   //quadratic probing
+    //   return ((origin_index + int(pow(iter_count,2)))% TABLE_SIZE);
+    // }
 
-    virtual uint32_t hash_double_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
-    {
-      //double probing
-      return ((origin_index + iter_count*2)% TABLE_SIZE);
-    }
-    virtual uint32_t hash_times_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
-    {
-      //times probing
-      return ((origin_index + iter_count*6)% TABLE_SIZE);
-    }
+    // virtual uint32_t hash_double_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
+    // {
+    //   //double probing
+    //   return ((origin_index + iter_count*2)% TABLE_SIZE);
+    // }
+    // virtual uint32_t hash_times_next(uint32_t key, uint32_t origin_index, uint32_t iter_count)
+    // {
+    //   //times probing
+    //   return ((origin_index + iter_count*6)% TABLE_SIZE);
+    // }
     // virtual uint32_t hash_next_double(uint32_t key, )
 
     //the buffer has to be allocated by the caller
@@ -76,8 +76,6 @@ class better_locked_probing_hash_table : public hash_table {
       /****************/
       uint64_t index = this->hash(key);
       int probe_count=0;
-      uint32_t iter_count = 0;
-      uint32_t origin_index = index;
 
       while(table[index].valid == true) {
         if(table[index].key == key) {
@@ -85,8 +83,7 @@ class better_locked_probing_hash_table : public hash_table {
           return true;
         } else {
           probe_count++;
-          iter_count++;
-          index = this->hash_double_next(origin_index, iter_count);
+          index = this->hash_next(key, index);
           if(probe_count >= TABLE_SIZE) break;
         }
       }//end while
@@ -102,13 +99,9 @@ class better_locked_probing_hash_table : public hash_table {
     bool insert(uint32_t key, uint64_t value) {
       /* TODO: put your own insert function here */
       /****************/
-      // lock guard
-      // std::lock_guard<std::mutex> lock(global_mutex);
       uint64_t index = this->hash(key);
       int probe_count=0;
-      uint64_t lock_index = get_lock_index(index);
-      uint32_t iter_count = 0;
-      uint32_t origin_index = index;
+      uint64_t lock_index = index % LOCK_SIZE;
 
       locks[lock_index].lock();
       while(table[index].valid == true) {
@@ -118,11 +111,10 @@ class better_locked_probing_hash_table : public hash_table {
         } else {
           locks[lock_index].unlock();
           probe_count++;
-          iter_count++;
           
-          index = this->hash_double_next(origin_index, iter_count);
+          index = this->hash_next(key, index);
           if(probe_count >= TABLE_SIZE) return false; //could not add because the table was full
-          lock_index = get_lock_index(index);
+          lock_index = index % LOCK_SIZE;
           locks[lock_index].lock();
         }
       }//end while
