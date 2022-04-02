@@ -2,6 +2,7 @@
 #include <thread>
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 void matmul_ref(const int* const matrixA, const int* const matrixB,
                 int* const matrixC, const int n, const int m) {
@@ -12,33 +13,19 @@ void matmul_ref(const int* const matrixA, const int* const matrixB,
         matrixC[i * n + j] += matrixA[i * m + k] * matrixB[k * n + j];
 }
 
-void run_matmul(const int* const matrixA, const int* const matrixB, int* matrixB_trans, int* const matrixC, 
-                const int n, const int m, int a, int b, const int block_size, bool large){
-  int B = n/block_size;
-  int four_or_two = (large) ? 4 : 2;
-  // C_4b,4a ~ C_4b+B/4-1, 4a+B/4-1
-  #pragma omp parallel for collapse(2)
-  for (int i=(B/four_or_two)*b; i<(B/four_or_two)*(b+1); i++){
-    for (int j=(B/four_or_two)*a; j<(B/four_or_two)*(a+1); j++){
-      //C_i,j = A_i,0 * B_0,j + A_i,1 * B_1,j + ... A_i,k * B_k,j + ... A_i,m/b-1 * B_m/b-1,j
-      for (int k=0; k<m/block_size; k++){ // matrix-wise multiplication
-        //A_i,k * B_k,j -> A_i,k * B'_j,k matrix multiplication
-        for (int ii=0; ii<block_size; ii++){
-          for(int jj=0; jj<block_size; jj++){
-            for (int kk=0; kk<block_size; kk++){
-              int index_a_i = i * block_size + ii;
-              int index_a_j = k * block_size + kk;
-              int index_b_i = k * block_size + kk;
-              int index_b_j = j * block_size + jj;
-              int index_bt_i = j * block_size + jj;
-              int index_bt_j = k * block_size + kk;
-
-              // matrixC[index_a_i * n + index_b_j] += \
-              //   matrixA[index_a_i*m + index_a_j] * matrixB[index_b_i * n + index_b_j];
-              matrixC[index_a_i * n + index_b_j] += \
-                matrixA[index_a_i*m + index_a_j] * matrixB_trans[index_bt_i * m + index_bt_j];
-
+void run_matmul(int* const matrixA, int* const matrixB_trans, int* const matrixC, 
+                const int n, int m, int a, int b, const int block_size, int four_or_two){
+  // #pragma omp parallel for collapse(3)
+  for(int i=n/four_or_two*b ; i<n/four_or_two*(b+1) ; i += block_size){
+    for(int k=0; k<m; k += block_size){
+      for(int j=n/four_or_two*a; j<n/four_or_two*(a+1); j+= block_size){
+        for(int ii=i; ii<std::min(i+block_size, n); ii++){
+          for(int jj=j; jj<std::min(j+block_size,n); jj++){
+            int sum = 0;
+            for(int kk=k; kk<std::min(k+block_size, m); kk++){
+              sum += matrixA[ii*m + kk] * matrixB_trans[jj*m+kk];
             }
+            matrixC[ii*n + jj] += sum;
           }
         }
       }
@@ -49,31 +36,52 @@ void run_matmul(const int* const matrixA, const int* const matrixB, int* matrixB
 
 void matmul_optimized(const int* const matrixA, const int* const matrixB,
                       int* const matrixC, const int n, const int m) {
-  const int block_size = 128; 
+  const int block_size = 64; //16,32,64,128 64(2.5sec)
   
   std::vector<std::thread> threads;
   int cores = std::thread::hardware_concurrency();
   int B = n/block_size;
-  int* matrixB_trans = new int[n*m];
+  int new_m;
+
+  float log_res = std::log(m)/std::log(2);
+  int log_res_i = int(log_res);
+  if (log_res != log_res_i){
+    new_m = int(pow(2,++log_res_i)); // 바뀌면 matrixA, matrixB 둘다 바뀌어야. 
+  }else{
+    new_m = m;
+  }
+
+  int* const matrixB_trans = new int[n*new_m];
+  int* const matrixA_new= new int[n*new_m];
   #pragma omp parallel for collapse(2)
-  for (int i=0; i<m; i++){
-    for(int j=0; j<n; j++){
-      // B_i,j *n -> B'_j,i *m
-      matrixB_trans[j*m + i] = matrixB[i*n + j];
+  for(int i=0; i<new_m; i++){
+    for (int j=0; j<n; j++){
+      if(i<m){
+        matrixB_trans[j*new_m + i] = matrixB[i*n + j];
+        matrixA_new[j*new_m+i] = matrixA[j*m+i];
+      }else{
+        matrixB_trans[j*new_m + i] = 0;
+        matrixA_new[j*new_m+i] = 0;
+      }
     }
   }
 
+  int four_or_two;
   if (B*B >= cores){
     for (int i=0; i<cores; i++){
       int a = i/4;
       int b = i%4;
-      threads.push_back(std::thread(run_matmul, matrixA, matrixB, matrixB_trans, matrixC, n, m, a, b, block_size, true));
+      four_or_two = 4;
+      threads.push_back(std::thread(run_matmul, matrixA_new, matrixB_trans, matrixC, \
+            n, new_m, a, b, block_size, four_or_two));
     }
   }else{
     for(int i=0; i<B*B; i++){
       int a = i/2;
       int b = i%2;
-      threads.push_back(std::thread(run_matmul, matrixA, matrixB, matrixB_trans, matrixC, n, m, a, b, block_size, false));
+      four_or_two = 2;
+      threads.push_back(std::thread(run_matmul, matrixA_new, matrixB_trans, matrixC, \
+            n, new_m, a, b, block_size, four_or_two));
     }
   }
 
