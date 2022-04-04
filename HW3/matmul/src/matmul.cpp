@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <immintrin.h>
 
 void matmul_ref(const int* const matrixA, const int* const matrixB,
                 int* const matrixC, const int n, const int m) {
