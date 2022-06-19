@@ -2,7 +2,7 @@
 
 ## 0 Introduction
 
-This is HW6 for 'Multi-core and GPU Programming 2021 Spring' at Yonsei University. 
+This is HW7 for 'Multi-core and GPU Programming 2022 Spring' at Yonsei University. 
 
 - Professor: [Jinho Lee](http://acsys.yonsei.ac.kr/)
 - Teaching Assistant: Kanghyun Choi
