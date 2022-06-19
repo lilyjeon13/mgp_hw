@@ -1,0 +1,272 @@
+[INFO] Arguments will be as following: 
+    INPUT_PATH: /nfs/home/mgp2022_data/hw7/cifar10/test_batch.bin
+    DATA_OFFSET: 0
+    BATCH: 128
+    IMG_PATH_TEMPLATE: tmp/cifar10_test_%d_%s.bmp
+    PARAMETER_PATH: /nfs/home/mgp2022_data/hw7/vgg_weight/values_vgg.txt
+[INFO] Initialize variables
+[INFO] Allocate memories
+[INFO] Read image from data_offset 0 at /nfs/home/mgp2022_data/hw7/cifar10/test_batch.bin
+[INFO] Save image to tmp/cifar10_test_0_cat.bmp
+[INFO] Save image to tmp/cifar10_test_1_ship.bmp
+[INFO] Save image to tmp/cifar10_test_2_ship.bmp
+[INFO] Save image to tmp/cifar10_test_3_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_4_frog.bmp
+[INFO] Save image to tmp/cifar10_test_5_frog.bmp
+[INFO] Save image to tmp/cifar10_test_6_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_7_frog.bmp
+[INFO] Save image to tmp/cifar10_test_8_cat.bmp
+[INFO] Save image to tmp/cifar10_test_9_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_10_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_11_truck.bmp
+[INFO] Save image to tmp/cifar10_test_12_dog.bmp
+[INFO] Save image to tmp/cifar10_test_13_horse.bmp
+[INFO] Save image to tmp/cifar10_test_14_truck.bmp
+[INFO] Save image to tmp/cifar10_test_15_ship.bmp
+[INFO] Save image to tmp/cifar10_test_16_dog.bmp
+[INFO] Save image to tmp/cifar10_test_17_horse.bmp
+[INFO] Save image to tmp/cifar10_test_18_ship.bmp
+[INFO] Save image to tmp/cifar10_test_19_frog.bmp
+[INFO] Save image to tmp/cifar10_test_20_horse.bmp
+[INFO] Save image to tmp/cifar10_test_21_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_22_deer.bmp
+[INFO] Save image to tmp/cifar10_test_23_truck.bmp
+[INFO] Save image to tmp/cifar10_test_24_dog.bmp
+[INFO] Save image to tmp/cifar10_test_25_bird.bmp
+[INFO] Save image to tmp/cifar10_test_26_deer.bmp
+[INFO] Save image to tmp/cifar10_test_27_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_28_truck.bmp
+[INFO] Save image to tmp/cifar10_test_29_frog.bmp
+[INFO] Save image to tmp/cifar10_test_30_frog.bmp
+[INFO] Save image to tmp/cifar10_test_31_dog.bmp
+[INFO] Save image to tmp/cifar10_test_32_deer.bmp
+[INFO] Save image to tmp/cifar10_test_33_dog.bmp
+[INFO] Save image to tmp/cifar10_test_34_truck.bmp
+[INFO] Save image to tmp/cifar10_test_35_bird.bmp
+[INFO] Save image to tmp/cifar10_test_36_deer.bmp
+[INFO] Save image to tmp/cifar10_test_37_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_38_truck.bmp
+[INFO] Save image to tmp/cifar10_test_39_dog.bmp
+[INFO] Save image to tmp/cifar10_test_40_deer.bmp
+[INFO] Save image to tmp/cifar10_test_41_frog.bmp
+[INFO] Save image to tmp/cifar10_test_42_dog.bmp
+[INFO] Save image to tmp/cifar10_test_43_frog.bmp
+[INFO] Save image to tmp/cifar10_test_44_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_45_truck.bmp
+[INFO] Save image to tmp/cifar10_test_46_cat.bmp
+[INFO] Save image to tmp/cifar10_test_47_truck.bmp
+[INFO] Save image to tmp/cifar10_test_48_horse.bmp
+[INFO] Save image to tmp/cifar10_test_49_frog.bmp
+[INFO] Save image to tmp/cifar10_test_50_truck.bmp
+[INFO] Save image to tmp/cifar10_test_51_ship.bmp
+[INFO] Save image to tmp/cifar10_test_52_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_53_cat.bmp
+[INFO] Save image to tmp/cifar10_test_54_ship.bmp
+[INFO] Save image to tmp/cifar10_test_55_ship.bmp
+[INFO] Save image to tmp/cifar10_test_56_horse.bmp
+[INFO] Save image to tmp/cifar10_test_57_horse.bmp
+[INFO] Save image to tmp/cifar10_test_58_deer.bmp
+[INFO] Save image to tmp/cifar10_test_59_frog.bmp
+[INFO] Save image to tmp/cifar10_test_60_horse.bmp
+[INFO] Save image to tmp/cifar10_test_61_cat.bmp
+[INFO] Save image to tmp/cifar10_test_62_frog.bmp
+[INFO] Save image to tmp/cifar10_test_63_cat.bmp
+[INFO] Save image to tmp/cifar10_test_64_frog.bmp
+[INFO] Save image to tmp/cifar10_test_65_bird.bmp
+[INFO] Save image to tmp/cifar10_test_66_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_67_bird.bmp
+[INFO] Save image to tmp/cifar10_test_68_cat.bmp
+[INFO] Save image to tmp/cifar10_test_69_horse.bmp
+[INFO] Save image to tmp/cifar10_test_70_bird.bmp
+[INFO] Save image to tmp/cifar10_test_71_frog.bmp
+[INFO] Save image to tmp/cifar10_test_72_ship.bmp
+[INFO] Save image to tmp/cifar10_test_73_ship.bmp
+[INFO] Save image to tmp/cifar10_test_74_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_75_bird.bmp
+[INFO] Save image to tmp/cifar10_test_76_truck.bmp
+[INFO] Save image to tmp/cifar10_test_77_cat.bmp
+[INFO] Save image to tmp/cifar10_test_78_cat.bmp
+[INFO] Save image to tmp/cifar10_test_79_ship.bmp
+[INFO] Save image to tmp/cifar10_test_80_ship.bmp
+[INFO] Save image to tmp/cifar10_test_81_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_82_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_83_horse.bmp
+[INFO] Save image to tmp/cifar10_test_84_bird.bmp
+[INFO] Save image to tmp/cifar10_test_85_dog.bmp
+[INFO] Save image to tmp/cifar10_test_86_bird.bmp
+[INFO] Save image to tmp/cifar10_test_87_horse.bmp
+[INFO] Save image to tmp/cifar10_test_88_ship.bmp
+[INFO] Save image to tmp/cifar10_test_89_truck.bmp
+[INFO] Save image to tmp/cifar10_test_90_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_91_cat.bmp
+[INFO] Save image to tmp/cifar10_test_92_ship.bmp
+[INFO] Save image to tmp/cifar10_test_93_frog.bmp
+[INFO] Save image to tmp/cifar10_test_94_deer.bmp
+[INFO] Save image to tmp/cifar10_test_95_frog.bmp
+[INFO] Save image to tmp/cifar10_test_96_frog.bmp
+[INFO] Save image to tmp/cifar10_test_97_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_98_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_99_horse.bmp
+[INFO] Save image to tmp/cifar10_test_100_deer.bmp
+[INFO] Save image to tmp/cifar10_test_101_dog.bmp
+[INFO] Save image to tmp/cifar10_test_102_frog.bmp
+[INFO] Save image to tmp/cifar10_test_103_cat.bmp
+[INFO] Save image to tmp/cifar10_test_104_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_105_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_106_cat.bmp
+[INFO] Save image to tmp/cifar10_test_107_frog.bmp
+[INFO] Save image to tmp/cifar10_test_108_ship.bmp
+[INFO] Save image to tmp/cifar10_test_109_horse.bmp
+[INFO] Save image to tmp/cifar10_test_110_deer.bmp
+[INFO] Save image to tmp/cifar10_test_111_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_112_frog.bmp
+[INFO] Save image to tmp/cifar10_test_113_bird.bmp
+[INFO] Save image to tmp/cifar10_test_114_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_115_cat.bmp
+[INFO] Save image to tmp/cifar10_test_116_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_117_deer.bmp
+[INFO] Save image to tmp/cifar10_test_118_bird.bmp
+[INFO] Save image to tmp/cifar10_test_119_horse.bmp
+[INFO] Save image to tmp/cifar10_test_120_ship.bmp
+[INFO] Save image to tmp/cifar10_test_121_cat.bmp
+[INFO] Save image to tmp/cifar10_test_122_automobile.bmp
+[INFO] Save image to tmp/cifar10_test_123_bird.bmp
+[INFO] Save image to tmp/cifar10_test_124_ship.bmp
+[INFO] Save image to tmp/cifar10_test_125_airplane.bmp
+[INFO] Save image to tmp/cifar10_test_126_ship.bmp
+[INFO] Save image to tmp/cifar10_test_127_cat.bmp
+[INFO] CUDA elapsed time is 348.042 msec
+[INFO] CUDA predict is as following:
+CPU:CLASS(NUMBER,T/F),CUDA:CLASS(NUMBER,T/F),Label:CLASS(NUMBER)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       frog(6)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:       bird(2,0), CUDA:       bird(2,0), Label:       frog(6)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:        dog(5,1), CUDA:        dog(5,1), Label:        dog(5)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:        dog(5,1), CUDA:        dog(5,1), Label:        dog(5)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:      horse(7)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:   airplane(0)
+CPU:       deer(4,1), CUDA:       deer(4,1), Label:       deer(4)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:       deer(4,0), CUDA:       deer(4,0), Label:        dog(5)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       deer(4)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:        dog(5,1), CUDA:        dog(5,1), Label:        dog(5)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       deer(4)
+CPU:        cat(3,0), CUDA:        cat(3,0), Label:        dog(5)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       bird(2)
+CPU:       deer(4,1), CUDA:       deer(4,1), Label:       deer(4)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:        dog(5,1), CUDA:        dog(5,1), Label:        dog(5)
+CPU:       deer(4,1), CUDA:       deer(4,1), Label:       deer(4)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:        dog(5,1), CUDA:        dog(5,1), Label:        dog(5)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       frog(6)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:   airplane(0)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:        cat(3,0), CUDA:        cat(3,0), Label:      horse(7)
+CPU:        cat(3,0), CUDA:        cat(3,0), Label:       deer(4)
+CPU:        cat(3,0), CUDA:        cat(3,0), Label:       frog(6)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       frog(6)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       bird(2)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:      horse(7)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       bird(2)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:        dog(5)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       bird(2)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:      horse(7)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:      truck(9,1), CUDA:      truck(9,1), Label:      truck(9)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:        cat(3)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:       deer(4,1), CUDA:       deer(4,1), Label:       deer(4)
+CPU:        cat(3,0), CUDA:        cat(3,0), Label:       frog(6)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:       deer(4,1), CUDA:       deer(4,1), Label:       deer(4)
+CPU:        dog(5,1), CUDA:        dog(5,1), Label:        dog(5)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:        cat(3)
+CPU:       frog(6,1), CUDA:       frog(6,1), Label:       frog(6)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:      truck(9,0), CUDA:      truck(9,0), Label:       deer(4)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:       bird(2,0), CUDA:       bird(2,0), Label:       frog(6)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU:   airplane(0,1), CUDA:   airplane(0,1), Label:   airplane(0)
+CPU:       deer(4,1), CUDA:       deer(4,1), Label:       deer(4)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU:      horse(7,1), CUDA:      horse(7,1), Label:      horse(7)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+CPU: automobile(1,1), CUDA: automobile(1,1), Label: automobile(1)
+CPU:       bird(2,1), CUDA:       bird(2,1), Label:       bird(2)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:       ship(8,0), CUDA:       ship(8,0), Label:   airplane(0)
+CPU:       ship(8,1), CUDA:       ship(8,1), Label:       ship(8)
+CPU:        cat(3,1), CUDA:        cat(3,1), Label:        cat(3)
+
+Correct
+
+CPU error:21.0938% GPU error:21.0938%

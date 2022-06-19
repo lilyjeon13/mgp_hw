@@ -14,7 +14,7 @@ class better_locked_probing_hash_table : public hash_table {
   private:
     Bucket* table;
     const int TABLE_SIZE; //we do not consider resizing. Thus the table has to be larger than the max num items.
-    std::mutex global_mutex; 
+    // std::mutex global_mutex; 
 
     /* TODO: put your own code here  (if you need something)*/
     /****************/

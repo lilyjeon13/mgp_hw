@@ -1,0 +1,13 @@
+s1l 10000 s1l 10000
+S1 10000 S2 10000
+
+== sequential start ==
+Matrix Filled: maxY 9943 maxX 9995 maxVal 8770
+Backward Moving: destY 0 destX 12
+== sequential took 1.7657 sec ==
+
+== parallel start ==
+Matrix Filled: maxY 9943 maxX 9995 maxVal 8770
+Backward Moving: destY 5062 destX 4937
+== parallel took 1.61543 sec ==
+

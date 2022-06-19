@@ -1,0 +1,17 @@
+=====================================
+             Sum Reduction           
+=====================================
+The size of Sequence: 16777216
+=====================================
+
+Read input file(/nfs/home/mgp2022_data/hw6/input_16777216.txt)...
+Read output file(/nfs/home/mgp2022_data/hw6/output_16777216.txt)...
+
+Run your solution...
+
+prop.maxgridsize 2147483647
+prop.maxgridsize 2147483647
+prop.maxgridsize 2147483647
+reduce_optimal took: 11.403904 msec 
+Correct
+

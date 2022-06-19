@@ -1,0 +1,14 @@
+=====================================
+         Matrix Multiplication       
+=====================================
+The size of Matrix: 4096
+=====================================
+
+Read input file(/nfs/home/mgp2022_data/hw5/input_4096.txt)...
+Read output file(/nfs/home/mgp2022_data/hw5/output_4096.txt)...
+
+Run your solution...
+
+matmul_optimal took 0.184642 sec
+Correct
+

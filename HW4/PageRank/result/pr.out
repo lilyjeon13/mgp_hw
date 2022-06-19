@@ -1,0 +1,147 @@
+Read Time:           0.01737
+EL size : 88234
+alloc edgelist 88234
+alloc edgelist 88234
+Build Time:          0.00067
+directed constructor
+Preprocessing Time : 0.00000
+trial Time:          0.00184
+Printing Top5 Ranks
+2655:0.00424996
+3434:0.00421867
+1911:0.00392899
+1902:0.00358316
+2649:0.00287814
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004250
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004219
+ pp answer[2]: 2655, 0.004353, res[2] = 1911, 0.003929
+ pp answer[3]: 1902, 0.004315, res[3] = 1902, 0.003583
+ pp answer[4]: 1888, 0.003309, res[4] = 2649, 0.002878
+NON-PASS!! your total pass: 1
+Preprocessing Time : 0.00000
+trial Time:          0.00182
+Printing Top5 Ranks
+2655:0.00434503
+3434:0.00428879
+1911:0.00385019
+2649:0.00263466
+1888:0.00243805
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004345
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004289
+ pp answer[2]: 2655, 0.004353, res[2] = 1911, 0.003850
+ pp answer[3]: 1902, 0.004315, res[3] = 2649, 0.002635
+ pp answer[4]: 1888, 0.003309, res[4] = 1888, 0.002438
+NON-PASS!! your total pass: 1
+Preprocessing Time : 0.00000
+trial Time:          0.00184
+Printing Top5 Ranks
+2655:0.00426241
+3434:0.00421411
+1911:0.00392395
+1902:0.00385291
+2649:0.0029212
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004262
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004214
+ pp answer[2]: 2655, 0.004353, res[2] = 1911, 0.003924
+ pp answer[3]: 1902, 0.004315, res[3] = 1902, 0.003853
+ pp answer[4]: 1888, 0.003309, res[4] = 2649, 0.002921
+NON-PASS!! your total pass: 1
+Preprocessing Time : 0.00000
+trial Time:          0.00185
+Printing Top5 Ranks
+2655:0.00425201
+3434:0.00401833
+1902:0.00323866
+1888:0.00298193
+1911:0.00296378
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004252
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004018
+ pp answer[2]: 2655, 0.004353, res[2] = 1902, 0.003239
+ pp answer[3]: 1902, 0.004315, res[3] = 1888, 0.002982
+ pp answer[4]: 1888, 0.003309, res[4] = 1911, 0.002964
+NON-PASS!! your total pass: 0
+Preprocessing Time : 0.00000
+trial Time:          0.00186
+Printing Top5 Ranks
+3434:0.00423031
+2655:0.00390745
+1902:0.00324438
+1888:0.00297828
+2649:0.00266076
+ pp answer[0]: 1911, 0.004525, res[0] = 3434, 0.004230
+ pp answer[1]: 3434, 0.004507, res[1] = 2655, 0.003907
+ pp answer[2]: 2655, 0.004353, res[2] = 1902, 0.003244
+ pp answer[3]: 1902, 0.004315, res[3] = 1888, 0.002978
+ pp answer[4]: 1888, 0.003309, res[4] = 2649, 0.002661
+NON-PASS!! your total pass: 0
+Preprocessing Time : 0.00000
+trial Time:          0.00183
+Printing Top5 Ranks
+2655:0.00429703
+3434:0.00415883
+1911:0.00299912
+2649:0.00290994
+1902:0.002674
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004297
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004159
+ pp answer[2]: 2655, 0.004353, res[2] = 1911, 0.002999
+ pp answer[3]: 1902, 0.004315, res[3] = 2649, 0.002910
+ pp answer[4]: 1888, 0.003309, res[4] = 1902, 0.002674
+NON-PASS!! your total pass: 1
+Preprocessing Time : 0.00000
+trial Time:          0.00185
+Printing Top5 Ranks
+2655:0.00429878
+3434:0.00409386
+1911:0.00388348
+1902:0.00354862
+2649:0.00286422
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004299
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004094
+ pp answer[2]: 2655, 0.004353, res[2] = 1911, 0.003883
+ pp answer[3]: 1902, 0.004315, res[3] = 1902, 0.003549
+ pp answer[4]: 1888, 0.003309, res[4] = 2649, 0.002864
+NON-PASS!! your total pass: 1
+Preprocessing Time : 0.00000
+trial Time:          0.00184
+Printing Top5 Ranks
+2655:0.00427001
+3434:0.00426757
+1911:0.00419628
+1902:0.00390143
+1888:0.0029383
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004270
+ pp answer[1]: 3434, 0.004507, res[1] = 3434, 0.004268
+ pp answer[2]: 2655, 0.004353, res[2] = 1911, 0.004196
+ pp answer[3]: 1902, 0.004315, res[3] = 1902, 0.003901
+ pp answer[4]: 1888, 0.003309, res[4] = 1888, 0.002938
+NON-PASS!! your total pass: 2
+Preprocessing Time : 0.00000
+trial Time:          0.00186
+Printing Top5 Ranks
+3434:0.00424332
+1911:0.0040317
+2655:0.00402691
+1888:0.00281596
+1902:0.0027971
+ pp answer[0]: 1911, 0.004525, res[0] = 3434, 0.004243
+ pp answer[1]: 3434, 0.004507, res[1] = 1911, 0.004032
+ pp answer[2]: 2655, 0.004353, res[2] = 2655, 0.004027
+ pp answer[3]: 1902, 0.004315, res[3] = 1888, 0.002816
+ pp answer[4]: 1888, 0.003309, res[4] = 1902, 0.002797
+NON-PASS!! your total pass: 1
+Preprocessing Time : 0.00000
+trial Time:          0.00182
+Printing Top5 Ranks
+2655:0.00428234
+1911:0.00423468
+3434:0.00419051
+1902:0.00363573
+2649:0.00288044
+ pp answer[0]: 1911, 0.004525, res[0] = 2655, 0.004282
+ pp answer[1]: 3434, 0.004507, res[1] = 1911, 0.004235
+ pp answer[2]: 2655, 0.004353, res[2] = 3434, 0.004191
+ pp answer[3]: 1902, 0.004315, res[3] = 1902, 0.003636
+ pp answer[4]: 1888, 0.003309, res[4] = 2649, 0.002880
+NON-PASS!! your total pass: 0
+PageRank End. Your Pass Score: 0, Mininum Runtime: 0.001816

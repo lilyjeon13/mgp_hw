@@ -37,7 +37,7 @@ void matmul_optimized(const int* const matrixA, const int* const matrixB,
   bool needtoEnd = false;
   while(!needtoEnd){
     blocks = (n/block_size)*(n/block_size);
-    if(blocks !=0){
+    if(blocks > 1){
       needtoEnd = true;
       break;
     }else{
